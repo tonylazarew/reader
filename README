@@ -1,1 +1,5 @@
-Reader project
+Reader project source code
+--------------------------
+
+ * readerd -- implementation of Reader's backend service
+

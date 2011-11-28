@@ -1,0 +1,7 @@
+# Python objects
+*.pyo
+*.pyc
+
+# Build products
+readerd/build
+readerd/dist
