@@ -55,6 +55,7 @@ def start(path):
 
     # Starting twistd
     from twisted.scripts import twistd
+    sys.stdout.write("readerd process is starting\n")
     twistd.run()
 
 def stop(path):
@@ -72,6 +73,3 @@ def stop(path):
         sys.stderr.write("readerd process doesn't look alive, removing stale pid file\n")
     else:
         sys.stdout.write("readerd process was stopped\n")
-
-    if os.path.exists(pid_file):
-        os.remove(pid_file)

@@ -5,3 +5,9 @@
 # Build products
 readerd/build
 readerd/dist
+
+# Twisted files
+*.tac
+*.pid
+*.log
+dropin.cache
