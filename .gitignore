@@ -11,3 +11,4 @@ readerd/dist
 *.pid
 *.log
 dropin.cache
+_trial_temp

@@ -35,12 +35,13 @@ def run():
         from readerd.scripts import config
         return config.create(args.path)
 
-def start(path):
+def start(path, _test=False):
     """Start the readerd instance.
     """
     tac_file = os.path.join(path, "readerd.tac")
     if not os.path.exists(tac_file):
-        sys.stderr.write("unable to locate {}, exiting\n".format(tac_file))
+        if not _test:
+            sys.stderr.write("unable to locate {}, exiting\n".format(tac_file))
         return 1
     os.chdir(path)
     sys.path.insert(0, os.path.abspath(os.getcwd()))
@@ -53,18 +54,23 @@ def start(path):
     ]
     sys.argv = argv
 
+    if _test:
+        # Do not try to start twistd during unittesting
+        return 0
+
     # Starting twistd
     from twisted.scripts import twistd
     sys.stdout.write("readerd process is starting\n")
     twistd.run()
 
-def stop(path):
+def stop(path, _test=False):
     """Stop the readerd instance.
     """
     pid_file = os.path.join(path, "twistd.pid")
     if not os.path.exists(pid_file):
-        sys.stderr.write("cannot find {}, is readerd really running here?\n".format(pid_file))
-        sys.stderr.flush()
+        if not _test:
+            sys.stderr.write("cannot find {}, ".format(pid_file))
+            sys.stderr.write("is readerd really running here?\n")
         return 1
     pid = int(file(pid_file, "r").readline().strip())
     try:
