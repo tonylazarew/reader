@@ -1,5 +1,5 @@
 Reader project source code
 --------------------------
 
- * readerd -- implementation of Reader's backend service
- * rwebface -- web interface for Reader
+ * readerpr.daemon -- implementation of Reader's backend service
+ * readerpr.webface -- web interface for Reader
