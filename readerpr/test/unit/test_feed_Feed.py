@@ -7,7 +7,7 @@ import mock
 from twisted.internet import defer
 from twisted.trial import unittest
 
-from readerd.feed import Feed
+from readerpr.daemon.feed import Feed
 
 init_code = """
 from twisted.plugin import pluginPackagePaths
@@ -21,7 +21,7 @@ from zope.interface import implements
 from twisted.application import service
 from twisted.plugin import IPlugin
 
-from readerd.interfaces import IContentPlugin
+from readerpr.daemon.interfaces import IContentPlugin
 
 class DummyPlugin(service.Service):
     implements(IPlugin, IContentPlugin)
@@ -38,6 +38,8 @@ dummy_plugin = DummyPlugin()
 class TestContentPlugins(unittest.TestCase):
     """Test basic content plugins operations.
     """
+    plugins_storage = "readerpr.daemon.contentplugins"
+
     def setUp(self):
         # Creating a plugin directory and adding some plugin code there
         os.mkdir("contentplugins")
@@ -54,15 +56,15 @@ class TestContentPlugins(unittest.TestCase):
 
         try:
             mod = imp.load_module(
-                "readerd.contentplugins",
+                self.plugins_storage,
                 *imp.find_module("contentplugins", [os.getcwd()])
             )
         except ImportError:
             return defer.fail()
-        sys.modules["readerd.contentplugins"] = mod
+        sys.modules[self.plugins_storage] = mod
 
     def tearDown(self):
-        del(sys.modules["readerd.contentplugins"])
+        del(sys.modules[self.plugins_storage])
         shutil.rmtree("contentplugins")
 
     def test_pluginsEnabled(self):

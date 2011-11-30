@@ -32,7 +32,7 @@ def run():
     elif args.subcommand == "stop":
         return stop(args.path)
     elif args.subcommand == "create":
-        from readerd.scripts import config
+        from readerpr.daemon.scripts import config
         return config.create(args.path)
 
 def start(path, _test=False):

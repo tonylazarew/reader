@@ -1,6 +1,6 @@
 from twisted.trial import unittest
 
-from readerd.instance import ReaderdService
+from readerpr.daemon.instance import ReaderdService
 
 class TestReaderd(unittest.TestCase):
     def test_initialization(self):

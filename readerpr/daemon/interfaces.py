@@ -1,7 +1,7 @@
 from zope.interface import Interface, Attribute
 from twisted.application import service
 
-"""Interfaces for readerd classes.
+"""Interfaces for daemon classes.
 """
 
 class IContentPlugin(Interface, service.IService):

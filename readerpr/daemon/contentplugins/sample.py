@@ -2,7 +2,7 @@ from zope.interface import implements
 from twisted.application import service
 from twisted.plugin import IPlugin
 
-from readerd.interfaces import IContentPlugin
+from readerpr.daemon.interfaces import IContentPlugin
 
 """Sample implementation of content plugin.
 """

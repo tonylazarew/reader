@@ -20,7 +20,7 @@ from twisted.application import service
 # Do not modify this line
 application = service.Application("readerd")
 
-from readerd import instance
+from readerpr.daemon import instance
 readerd_svc = instance.ReaderdService(
     db_url=db_url, redis_host=redis_host, redis_port=redis_port)
 readerd_svc.setServiceParent(application)

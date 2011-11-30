@@ -3,8 +3,8 @@
 *.pyc
 
 # Build products
-readerd/build
-readerd/dist
+build
+dist
 
 # Twisted files
 *.tac

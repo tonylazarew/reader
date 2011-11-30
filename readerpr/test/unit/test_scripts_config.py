@@ -3,7 +3,7 @@ import shutil
 
 from twisted.trial import unittest
 
-from readerd.scripts import config
+from readerpr.daemon.scripts import config
 
 class TestCreate(unittest.TestCase):
     """Test 'create' command.

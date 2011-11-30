@@ -1,6 +1,6 @@
 from twisted.application import service
 
-from readerd.feed import Feed
+from readerpr.daemon.feed import Feed
 
 """Readerd instance service implementation.
 """
