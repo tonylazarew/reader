@@ -16,12 +16,13 @@ setup(
         "readerpr",
         "readerpr.daemon",
         "readerpr.daemon.contentplugins",
-        "readerpr.daemon.scripts",
+        "readerpr.scripts",
         "readerpr.test",
         "readerpr.test.unit",
         "readerpr.webface",
     ],
     scripts=[
-        "bin/readerd"
+        "bin/readerd",
+        "bin/rwebface"
     ],
 )
