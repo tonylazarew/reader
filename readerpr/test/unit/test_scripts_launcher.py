@@ -3,7 +3,7 @@ import shutil
 
 from twisted.trial import unittest
 
-from readerpr.daemon.scripts import config, launcher
+from readerpr.scripts import config, launcher
 
 class TestLaunchCommands(unittest.TestCase):
     """Test launch commands.
